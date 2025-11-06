@@ -1,0 +1,41 @@
+#  Credit Card Fraud Detection using Gradient Boosting
+
+This project detects fraudulent credit card transactions using the **Gradient Boosting Classifier** from Scikit-learn.  
+It covers data exploration, preprocessing, model training, evaluation, and **hyperparameter tuning** with Grid Search.  
+The model’s performance **before and after tuning** is compared to show how optimization improves accuracy and recall.
+
+---
+
+## 📊 Dataset
+The dataset used is **creditcard.csv**, which contains anonymized credit card transaction data.  
+Each record represents a transaction with the following characteristics:
+- **Features:** Numerical features (V1, V2, …, V28) obtained by PCA  
+- **Amount:** The transaction amount  
+- **Class:**  
+  - `0` → Normal transaction  
+  - `1` → Fraudulent transaction  
+
+ Download it from [Kaggle - Credit Card Fraud Detection](https://www.kaggle.com/mlg-ulb/creditcardfraud).
+
+---
+
+##  Project Workflow
+
+1. **Importing Libraries**
+   - `pandas`, `numpy`, `matplotlib`, `seaborn`
+   - `sklearn` (model, metrics, GridSearchCV)
+
+2. **Data Exploration**
+   - Check shape, info, missing values, and duplicates  
+   - Visualize class imbalance using bar and pie charts  
+
+3. **Data Preprocessing**
+   - Drop duplicate records  
+   - Rename `Class` → `Fraud`  
+   - Split data into training and testing sets  
+
+4. **Model Training (Before Tuning)**
+   ```python
+   GBM = GradientBoostingClassifier(n_estimators=100, random_state=29)
+   GBM.fit(X_train, y_train)
+   y_pred = GBM.predict(X_test)
